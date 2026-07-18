@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderJournal("সব");
   renderArticles("সব");
 
-  /* click on an entry card opens the read modal */
+  /* click on an entry card opens the read modal, or navigates if a real url is set */
   function findEntry(id, type){
     return (type === "journal" ? SITE_DATA.journal : SITE_DATA.articles).find(e => e.id === id);
   }
@@ -121,7 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", e => {
     const card = e.target.closest(".entry-card");
     if(!card) return;
-    if(card.dataset.url){ window.location.href = card.dataset.url; return; }
+    const url = card.dataset.url;
+    if(url && url !== "#"){ window.location.href = url; return; }
     openModal(findEntry(card.dataset.id, card.dataset.type));
   });
   document.getElementById("modalClose").addEventListener("click", () => {
@@ -228,5 +229,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-
-                                             
