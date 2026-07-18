@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modalCategory").textContent = entry.category;
     document.getElementById("modalTitle").textContent = entry.title;
     document.getElementById("modalDate").textContent = entry.date;
-    document.getElementById("modalContent")..innerHTML = entry.content;
+    document.getElementById("modalContent").innerHTML = entry.content;
     document.getElementById("readModal").classList.add("open");
   }
   document.body.addEventListener("click", e => {
@@ -226,4 +226,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-   
+
